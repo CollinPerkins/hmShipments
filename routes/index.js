@@ -11,7 +11,6 @@ router.get('/allShipments', function (req, res, next) {
   Shipments.find({}, function(err, shipments) {
     if (!err){
         res.json(shipments);
-        process.exit();
     } else {throw err;}
 });
 });
