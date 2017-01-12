@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  form(action="/addShipment" method="post")
+    input(name="orderNumber" placeholder="Order Number")
+    input(name="qrCode" placeholder="QR Code")
+    input(name="qty" placeholder="Quantity")
+    button Sumbit
