@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var shipmentsSchema = new Schema({
     orderNumber: String,
     sku: String,
-    lot: String,
+    serial: String,
     qty: { type: Number, default: 0 },
     date: { type: Date, default: Date.now }
 });
