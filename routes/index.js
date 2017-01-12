@@ -10,7 +10,8 @@ router.get('/', function(req, res, next) {
 router.get('/allShipments', function (req, res, next) {
   Shipments.find({}, function(err, shipments) {
     if (!err){
-        res.json(shipments);
+      console.log(shipments);
+      res.json(shipments);
     } else {throw err;}
 });
 });
