@@ -2,7 +2,13 @@ extends layout
 
 block content
   form(action="/addShipment" method="post")
-    input(name="orderNumber" placeholder="Order Number")
-    input(name="qrCode" placeholder="QR Code")
-    input(name="qty" placeholder="Quantity")
-    button Sumbit
+    .form-group
+      label(for='orderNumber') Order Number
+      input#orderNumber.form-control(name="orderNumber" placeholder="Order Number")
+    .form-group
+      label(for='qrcode') QR Code
+      input#qrcode.form-control(name="qrCode" placeholder="QR Code")
+    .form-group
+      label(for='quantity') Quantity
+      input#quantity.form-control(name="qty" placeholder="Quantity" value='0')
+    button.btn.btn-primary(type='submit') Submit

@@ -11,7 +11,9 @@ var users = require('./routes/users');
 
 var app = express();
 
-mongoose.connect(process.env.MONGODB_URI, function(err){
+// 'mongodb://localhost/shipments'
+// process.env.MONGODB_URI
+mongoose.connect('mongodb://localhost/shipments', function(err){
   if(!err) {
     console.log('Database connected')
   } else {
