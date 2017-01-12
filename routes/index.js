@@ -7,6 +7,15 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Shipments', message: ''});
 });
 
+router.get('/allShipments', function (req, res, next) {
+  Shipments.find({}, function(err, shipments) {
+    if (!err){
+        res.json(shipments);
+        process.exit();
+    } else {throw err;}
+});
+});
+
 router.post('/addShipment', function(req, res, next) {
   var qr = JSON.parse(req.body.qrCode);
 
