@@ -7,11 +7,12 @@ var csv = require('csv-parse');
 var fs = require('fs');
 
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
-  var file = req.file;
+  // var file = req.file;
 
-  csv(req.body, function(err, data){
-    console.log(data);
-  });
+  console.log(req.body);
+  // csv(req.body, function(err, data){
+  //   console.log(data);
+  // });
   // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
   //
   //
