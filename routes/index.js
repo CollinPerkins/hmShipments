@@ -8,7 +8,7 @@ var fs = require('fs');
 
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
-  req.body = req.body.toString();
+  // req.body = req.body.toString();
 
   console.log(req.body);
   // var newBody = req.body.toString();
