@@ -12,24 +12,24 @@ router.post('/trackingUpload', function (req, res, next) {
   // });
 
   for (var i = 0; i < req.body.length; i++) {
-    console.log(req.body[i]);
+    Shipments.find({orderNumber: req.body[i].orderNumber}, function (err, orders) {
+      for (var i = 0; i < orders.length; i++) {
+        var order = orders[i];
+
+        order.tracking = req.body[i].tracking;
+        console.log(order);
+
+        // order.save(function (err) {
+        //     if(err) {
+        //         console.error('ERROR!');
+        //     }
+        // });
+      }
+    });
   }
 
   // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
-  //   Shipments.find({orderNumber: data[0]}, function (err, orders) {
-  //     for (var i = 0; i < orders.length; i++) {
-  //       var order = orders[i];
   //
-  //       order.tracking = data[3];
-  //       console.log(order);
-  //
-  //       order.save(function (err) {
-  //           if(err) {
-  //               console.error('ERROR!');
-  //           }
-  //       });
-  //     }
-  //   });
   //
   // })
   res.send('done');
