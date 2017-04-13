@@ -9,7 +9,7 @@ var fs = require('fs');
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
   var newBody = JSON.stringify(req.body);
-  newBody = newBody.replace(": '' }", "");
+  newBody = newBody.slice(2, -5);
   console.log(newBody);
   // var newBody = req.body.toString();
   // newBody = newBody.replace(": '' }", "").replace("{", "");
