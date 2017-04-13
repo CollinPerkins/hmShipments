@@ -12,8 +12,10 @@ router.post('/trackingUpload', function (req, res, next) {
   // });
 
   for (var i = 0; i < req.body.length; i++) {
+    var tracking = req.body[i].tracking;
+    console.log("Were is request" + req.body[i]);
+    console.log("Were is tracking" + tracking);
     Shipments.find({orderNumber: req.body[i].orderNumber}, function (err, orders) {
-      console.log("Were is tracking" + req.body[i]);
       console.log("Were are Orders" + orders);
       for (var j = 0; j < orders.length; j++) {
         var order = orders[j];
