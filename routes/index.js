@@ -9,6 +9,9 @@ var fs = require('fs');
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   var file = req.file;
 
+  console.log(req);
+
+
   fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
     Shipments.find({orderNumber: data[0]}, function (err, orders) {
       for (var i = 0; i < orders.length; i++) {
