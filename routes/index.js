@@ -10,12 +10,10 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
   var newBody = JSON.stringify(req.body);
   newBody = newBody.slice(2, -5);
-  console.log(newBody);
-  // var newBody = req.body.toString();
-  // newBody = newBody.replace(": '' }", "").replace("{", "");
-  // csv(req.body, function(err, data){
-  //   console.log(data);
-  // });
+
+  csv(newBody, function(err, data){
+    console.log(data);
+  });
   // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
   //
   //
