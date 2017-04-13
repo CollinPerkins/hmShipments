@@ -9,7 +9,7 @@ var fs = require('fs');
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
 
-  console.log(req.body);
+  console.log(JSON.parse(req.body));
   // csv(req.body, function(err, data){
   //   console.log(data);
   // });
@@ -35,6 +35,7 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   //   });
   //
   // })
+  res.send('done');
 })
 
 /* GET home page. */
