@@ -12,7 +12,7 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   console.log(newBody);
   newBody = newBody.slice(2, -5);
   console.log(newBody);
-  csv(newBody, {rowDelimiter: 'windows'}, function(err, data){
+  csv(newBody, function(err, data){
     console.log(data);
   });
 
