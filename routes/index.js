@@ -11,8 +11,8 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   var newBody = JSON.stringify(req.body);
   console.log(newBody);
   newBody = newBody.slice(2, -5);
-
-  parse(newBody,  function(err, data){
+  console.log(newBody);
+  parse(newBody, {comment: '#'}, function(err, output){
     console.log(data);
   });
 
