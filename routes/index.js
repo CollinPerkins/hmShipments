@@ -9,7 +9,7 @@ var fs = require('fs');
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   var file = req.file;
 
-  console.log(req);
+  console.log(req.body);
 
 
   fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
