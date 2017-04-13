@@ -16,9 +16,9 @@ router.post('/trackingUpload', function (req, res, next) {
       for (var i = 0; i < orders.length; i++) {
         var order = orders[i];
 
-        console.log(order);
+        console.log(req.body[i].tracking);
         order.tracking = order.tracking;
-        console.log(order);
+        console.log(order.tracking);
 
         // order.save(function (err) {
         //     if(err) {
