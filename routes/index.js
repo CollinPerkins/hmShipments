@@ -1,18 +1,19 @@
 var express = require('express');
 var router = express.Router();
 var Shipments = require('../models/shipments.js');
-var multer  = require('multer');
-var upload = multer({dest: 'uploads/'});
 var csv = require('csv-parse');
-var fs = require('fs');
 
 router.post('/trackingUpload', function (req, res, next) {
-  console.log(req.body);
-  // newBody = newBody.slice(2, -5);
+
+  // newBody = newBody.slice(3, -5);
   // console.log(newBody);
   // csv(newBody, function(err, data){
   //   console.log(data);
   // });
+
+  for (var i = 0; i < req.body.length; i++) {
+    console.log(req.body[i]);
+  }
 
   // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
   //   Shipments.find({orderNumber: data[0]}, function (err, orders) {
