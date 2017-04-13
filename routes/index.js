@@ -9,11 +9,12 @@ var fs = require('fs');
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
   var newBody = JSON.stringify(req.body);
+  console.log(newBody);
   newBody = newBody.slice(2, -5);
 
-  newBody.pipe(csv()).on('data', function(data){
+  parse(newBody,  function(err, data){
     console.log(data);
-  })
+  });
 
   // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
   //   Shipments.find({orderNumber: data[0]}, function (err, orders) {
