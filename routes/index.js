@@ -12,7 +12,7 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   console.log(newBody);
   newBody = newBody.slice(2, -5);
   console.log(newBody);
-  parse(newBody, {comment: '#'}, function(err, output){
+  csv(newBody, function(err, output){
     console.log(data);
   });
 
