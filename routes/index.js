@@ -11,14 +11,17 @@ router.post('/trackingUpload', function (req, res, next) {
   //   console.log(data);
   // });
 
-  for (var i = 0; i < req.body.length; i++) {
-    var tracking = req.body[i].tracking;;
-    Shipments.find({orderNumber: req.body[i].orderNumber}, function (err, orders) {
-      for (var j = 0; j < orders.length; j++) {
-        var order = orders[j];
-        order.tracking = tracking;
+  var newBody = req.body;
 
-        console.log(order);
+  for (var i = 0; i < newBody.length; i++) {
+    Shipments.find({orderNumber: newBody.orderNumber}, function (err, orders) {
+      console.log("Orders " + orders);
+      console.log("Request " + newBody);
+      // for (var j = 0; j < orders.length; j++) {
+      //   var order = orders[j];
+      //   order.tracking = tracking;
+      //
+      //   console.log(order);
 
         // order.save(function (err) {
         //     if(err) {
