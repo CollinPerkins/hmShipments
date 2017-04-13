@@ -11,13 +11,9 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   var newBody = JSON.stringify(req.body);
   newBody = newBody.slice(2, -5);
 
-  csv(newBody, function(err, data){
+  newBody.pipe(csv()).on('data', function(data){
     console.log(data);
-  });
-  // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
-  //
-  //
-  // })
+  })
 
   // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
   //   Shipments.find({orderNumber: data[0]}, function (err, orders) {
