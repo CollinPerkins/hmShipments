@@ -10,7 +10,7 @@ router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
   var newBody = JSON.stringify(req.body);
   console.log(newBody);
-  newBody = newBody.slice(2, -5);
+  newBody = newBody.slice(2, -5).replace("\r", "");
   console.log(newBody);
   csv(newBody, function(err, data){
     console.log(data);
