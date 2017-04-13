@@ -6,9 +6,7 @@ var upload = multer({dest: 'uploads/'});
 var csv = require('csv-parse');
 var fs = require('fs');
 
-router.post('/trackingUpload', upload.single(''), function (req, res, next) {
-  // var file = req.file;
-  // var newBody = JSON.stringify(req.body);
+router.post('/trackingUpload', function (req, res, next) {
   console.log(req.body);
   // newBody = newBody.slice(2, -5);
   // console.log(newBody);
