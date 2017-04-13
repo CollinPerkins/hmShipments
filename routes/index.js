@@ -8,7 +8,8 @@ var fs = require('fs');
 
 router.post('/trackingUpload', upload.single(''), function (req, res, next) {
   // var file = req.file;
-  var newBody = req.body.replace(": '' }", "").replace("{", "");
+  var newBody = req.body.toString();
+  newBody = newBody.replace(": '' }", "").replace("{", "");
   console.log(newBody);
   // csv(req.body, function(err, data){
   //   console.log(data);
