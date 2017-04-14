@@ -9,19 +9,15 @@ router.post('/trackingUpload', function (req, res, next) {
 
   newBody.forEach(function(obj) {
     Shipments.find({orderNumber: obj.orderNumber}, function (err, orders) {
-      console.log("Orders " + orders);
-      console.log("tracking " + obj.tracking);
       for (var j = 0; j < orders.length; j++) {
         var order = orders[j];
         order.tracking = obj.tracking;
-        console.log("Single Order " + order);
-        console.log("Single tracking " + obj.tracking);
 
-        // order.save(function (err) {
-        //     if(err) {
-        //         console.error('ERROR!');
-        //     }
-        // })
+        order.save(function (err) {
+            if(err) {
+                console.error('ERROR!');
+            }
+        })
       }
     });
   });
