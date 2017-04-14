@@ -7,7 +7,8 @@ var shipmentsSchema = new Schema({
     serial: String,
     qty: { type: Number, default: 0 },
     date: { type: Date, default: Date.now },
-    tracking: String
+    tracking: String,
+    service: String
 });
 
 module.exports = mongoose.model('Shipment', shipmentsSchema);

@@ -12,6 +12,7 @@ router.post('/trackingUpload', function (req, res, next) {
       for (var j = 0; j < orders.length; j++) {
         var order = orders[j];
         order.tracking = obj.tracking;
+        order.service = obj.service;
 
         order.save(function (err) {
             if(err) {
