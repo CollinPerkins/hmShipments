@@ -9,7 +9,7 @@ router.post('/trackingUpload', function (req, res, next) {
 
   newBody.forEach(function(obj) {
     console.log(obj);
-    // Shipments.update({orderNumber: obj.orderNumber}, {$set: {tracking: obj.tracking}});
+    Shipments.update({orderNumber: obj.orderNumber}, {$set: {tracking: obj.tracking}});
   });
   // for (var i = 0; i < newBody.length; i++) {
   //   Shipments.find({orderNumber: newBody[i].orderNumber}, function (err, orders) {
