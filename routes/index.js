@@ -11,18 +11,18 @@ router.post('/trackingUpload', function (req, res, next) {
     Shipments.find({orderNumber: obj.orderNumber}, function (err, orders) {
       console.log("Orders " + orders);
       console.log("tracking " + obj.tracking);
-      // for (var j = 0; j < orders.length; j++) {
-      //   var order = orders[j];
-      //   order.tracking = tracking;
-      //
-      //   console.log(order);
+      for (var j = 0; j < orders.length; j++) {
+        var order = orders[j];
+        order.tracking = obj.tracking;
+        console.log("Single Order " + order);
+        console.log("Single tracking " + obj.tracking);
 
         // order.save(function (err) {
         //     if(err) {
         //         console.error('ERROR!');
         //     }
         // })
-      // }
+      }
     });
   });
   // for (var i = 0; i < newBody.length; i++) {
