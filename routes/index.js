@@ -5,36 +5,30 @@ var csv = require('csv-parse');
 
 router.post('/trackingUpload', function (req, res, next) {
 
-  // newBody = newBody.slice(3, -5);
-  // console.log(newBody);
-  // csv(newBody, function(err, data){
-  //   console.log(data);
-  // });
-
   var newBody = req.body;
 
-  for (var i = 0; i < newBody.length; i++) {
-    Shipments.find({orderNumber: newBody[i].orderNumber}, function (err, orders) {
-      console.log("Orders " + orders);
-      console.log("Request " + newBody[i]);
-      // for (var j = 0; j < orders.length; j++) {
-      //   var order = orders[j];
-      //   order.tracking = tracking;
-      //
-      //   console.log(order);
-
-        // order.save(function (err) {
-        //     if(err) {
-        //         console.error('ERROR!');
-        //     }
-        // })
-    });
-  }
-
-  // fs.createReadStream(file.path).pipe(csv()).on('data', function(data){
+  newBody.forEach(function(obj) {
+    console.log(obj);
+    // Shipments.update({orderNumber: obj.orderNumber}, {$set: {tracking: obj.tracking}});
+  });
+  // for (var i = 0; i < newBody.length; i++) {
+  //   Shipments.find({orderNumber: newBody[i].orderNumber}, function (err, orders) {
+  //     console.log("Orders " + orders);
+  //     console.log("Request " + newBody);
+  //     for (var j = 0; j < orders.length; j++) {
+  //       var order = orders[j];
+  //       order.tracking = tracking;
   //
+  //       console.log(order);
   //
-  // })
+  //       // order.save(function (err) {
+  //       //     if(err) {
+  //       //         console.error('ERROR!');
+  //       //     }
+  //       // })
+  //     }
+  //   });
+  // }
   res.send('done');
 })
 
