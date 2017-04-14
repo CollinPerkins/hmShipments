@@ -8,26 +8,25 @@ router.post('/trackingUpload', function (req, res, next) {
   var newBody = req.body;
 
   newBody.forEach(function(obj) {
-    console.log(obj);
-    Shipments.update({orderNumber: obj.orderNumber}, {$set: {tracking: obj.tracking}});
+    Shipments.find({orderNumber: obj.orderNumber}, function (err, orders) {
+      console.log("Orders " + orders);
+      console.log("tracking " + obj.tracking);
+      // for (var j = 0; j < orders.length; j++) {
+      //   var order = orders[j];
+      //   order.tracking = tracking;
+      //
+      //   console.log(order);
+
+        // order.save(function (err) {
+        //     if(err) {
+        //         console.error('ERROR!');
+        //     }
+        // })
+      // }
+    });
   });
   // for (var i = 0; i < newBody.length; i++) {
-  //   Shipments.find({orderNumber: newBody[i].orderNumber}, function (err, orders) {
-  //     console.log("Orders " + orders);
-  //     console.log("Request " + newBody);
-  //     for (var j = 0; j < orders.length; j++) {
-  //       var order = orders[j];
-  //       order.tracking = tracking;
-  //
-  //       console.log(order);
-  //
-  //       // order.save(function (err) {
-  //       //     if(err) {
-  //       //         console.error('ERROR!');
-  //       //     }
-  //       // })
-  //     }
-  //   });
+
   // }
   res.send('done');
 })
